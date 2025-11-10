@@ -1,0 +1,260 @@
+/* === Variables CSS (Palette Néon Adoucie) === */
+:root {
+    /* Couleurs de fond et de surface */
+    --bg: #0A0A1F;                   /* Fond principal, Bleu nuit très profond */
+    --card-bg: rgba(255, 255, 255, 0.05); /* Fond des cartes, léger effet glass sombre */
+    --surface: #141433;              /* Surface pour la nav et les blocs principaux (moins dur que le 0E0E25) */
+    
+    /* Couleurs d'Accent Néon (plus doux que le pur FF/00) */
+    --accent-blue: #00F0FF;          /* Cyan Électrique */
+    --accent-magenta: #F000FF;       /* Magenta Vif */
+    --accent: var(--accent-blue);    /* Couleur principale d'accent */
+    --accent-2: var(--accent-magenta);/* Couleur secondaire d'accent */
+    
+    /* Couleurs de Texte (Lisibilité Optimale) */
+    --text: #F8F8FF;                 /* Texte principal (Blanc cassé doux) */
+    --muted: #B0B0CC;                /* Texte secondaire / labels (Gris lavande léger) */
+    --text-color: var(--text);       
+    --text-secondary: var(--muted);  
+    
+    /* Effets et Dimensions */
+    --radius: 10px;                  /* Arrondi des coins */
+    
+    /* Ombre Néon Adoucie */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    --shadow-neon: 0 0 10px rgba(0, 240, 255, 0.4); /* Ombre principale cyan */
+    --shadow-neon-cta: 0 0 15px rgba(240, 0, 255, 0.7); /* Ombre CTA magenta */
+    
+    --max-width: 1300px;             
+    --gap: 25px;                     
+    --focus: 3px solid var(--accent-magenta);/* Focus en magenta */
+    
+    /* Conteneur et Boutons */
+    --container-bg: var(--surface);
+    --container-padding: 40px;       
+    --container-radius: 16px;
+    --primary-color: var(--accent-magenta); 
+    --primary-hover: #D500D5;
+}
+
+/* === Reset & Base (Utilisation d'une police plus humaine) === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+    background: linear-gradient(180deg, var(--bg) 0%, #00000a 100%); 
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial; /* Changement de police */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* === Navbar fixe en haut === */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 50px; 
+    background-color: var(--surface); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: var(--shadow); 
+    z-index: 999;
+}
+
+/* Logo + brand */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--accent);
+    /* Effet néon subtil sur le logo */
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.6); 
+}
+
+/* Liens de navigation */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: var(--gap);
+}
+.navbar-links li a {
+    color: var(--muted); 
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+}
+.navbar-links li a:hover {
+    background: rgba(0, 240, 255, 0.08); /* Fond au hover */
+    color: var(--accent-blue); 
+    text-shadow: 0 0 3px rgba(0, 240, 255, 0.5);
+}
+
+/* Actions / boutons dans la navbar */
+.navbar-actions .btn.primary {
+    padding: 10px 24px;
+    background: var(--primary-color);
+    color: var(--text); 
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(240, 0, 255, 0.4); 
+}
+.navbar-actions .btn.primary:hover {
+    transform: translateY(-1px); 
+    box-shadow: var(--shadow-neon-cta); 
+}
+
+/* === Conteneur central (Ambiance article) === */
+.container {
+    max-width: var(--max-width);
+    margin: 120px auto 60px; 
+    background-color: var(--container-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: var(--shadow-neon); 
+    padding: var(--container-padding);
+    border-radius: var(--container-radius);
+    text-align: left; 
+}
+
+/* Titres et paragraphes */
+h1 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 2.8rem; 
+    letter-spacing: -0.01em;
+}
+h2 {
+    color: var(--accent-blue); /* Sous-titres en cyan */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+a {
+    color: var(--accent-magenta); /* Liens dans le texte en magenta */
+    text-decoration: none;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 4px rgba(0, 240, 255, 0.8);
+}
+
+/* === Boutons et interactions === */
+.btn {
+    display: inline-block;
+    padding: 14px 32px; 
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(240, 0, 255, 0.5);
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-neon-cta);
+}
+
+/* === Cards / Blocs (Similaire à la barre latérale) === */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 240, 255, 0.2); 
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-neon); 
+}
+
+/* === Focus pour l'accessibilité === */
+.btn:focus, .navbar-links li a:focus, input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-color); /* Contour magenta */
+    border-color: var(--focus-color);
+}
+
+
+/* === Styles spécifiques du bloc d'appel à l'action (Sidebar CTA) === */
+.sidebar-cta {
+    background-color: var(--surface);
+    border-radius: var(--container-radius);
+    padding: 30px;
+    /* Contour plus fort pour se démarquer */
+    border: 1px solid var(--accent-magenta); 
+    box-shadow: 0 0 15px rgba(240, 0, 255, 0.5);
+}
+.sidebar-cta h3 {
+    color: var(--accent-magenta);
+    text-shadow: 0 0 10px rgba(240, 0, 255, 0.7);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+.sidebar-cta ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.sidebar-cta ul li {
+    color: var(--text);
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.sidebar-cta ul li::before {
+    content: "✓ ";
+    color: var(--accent-blue);
+    font-weight: bold;
+    margin-right: 10px;
+}
+.sidebar-cta form input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.5);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* === Responsive mobile === */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+    }
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+    .container {
+        margin: 140px 20px 40px;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+}
