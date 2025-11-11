@@ -4,36 +4,56 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{% block title %}CDI Bellevue{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <nav class="navbar">
-  <div class="navbar-brand">
-    <header class="site-header">
-        <div class="container">
-            <a href="/" class="logo">CDI Bellevue</a>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="about">A propos</a></li>
-                    <li><a href="catalogue">Catalogue</a></li>
-                    <li><a href="#">Mon Compte</a></li>
 
-                </ul>
-                
-            </nav>
-        </div>
-    </header>
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
   {% block head %}{% endblock %}
 </head>
 
 <body>
-  
-  <div class="container">
+  <!-- ======= En-tête / Barre de navigation ======= -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">CDI Bellevue</a>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="{{ url_for('catalogue') }}">Catalogue</a></li>
+          <li><a href="{{ url_for('about') }}">À propos</a></li>
+          <li><a href="{{ url_for('login') }}">Se connecter / S'inscrire</a></li>
+          <li><a href="{{ url_for('profil') }}">Mon compte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======= Contenu principal ======= -->
+<main>
+    <div class="container">
       {% block body %}{% endblock %}
+    </div>
+  </main>
+
+  <!-- Assistant flottant -->
+  <div class="chat-helper">
+      <div class="helper-character"></div>
+
+      <div class="chat-bubble">
+          <div id="chat-messages">
+              <p><strong>Assistant :</strong> Bonjour ! Je peux t’aider ?</p>
+          </div>
+
+          <div class="chat-input">
+              <input type="text" id="user-input" placeholder="Écris ta question...">
+              <button id="send-btn">Envoyer</button>
+          </div>
+      </div>
   </div>
 
-  {% block scripts %}{% endblock %}
-
+  {% block scripts %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  {% endblock %}
 </body>
-</html>
+

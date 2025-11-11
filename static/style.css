@@ -13,11 +13,7 @@
     --grey-bg: #f4f4f4;
     --border-color: #dddddd;
 
-    /* --- NOUVEAU : Couleurs pour les étiquettes --- */
-    --tag-livre: #27ae60;   /* Vert */
-    --tag-film: #8e44ad;    /* Violet */
-    --tag-musique: #c0392b; /* Rouge/Orange */
-    --tag-defaut: #777777; /* Gris (si aucun type n'est défini) */
+   
 
     --font-primary: 'Lato', 'Helvetica Neue', Arial, sans-serif;
     
@@ -44,8 +40,11 @@ html {
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
-    background: linear-gradient(to bottom right, #ffffff 0%, #ffffff 100%);    color: var(--dark-color);
+    background: linear-gradient(to bottom, #100927 0%, #030931 100%);
+    color: var(--dark-color);
 }
+
+
 
 img {
     max-width: 100%;
@@ -93,15 +92,19 @@ h3 { font-size: 1.5rem; }
 
 /* --- En-tête --- */
 .site-header {
-    background-color: var(--light-color); /* Le header reste blanc */
+    background-color: rgba(3, 9, 49, 0.6); /* Couleur + transparence */
+    backdrop-filter: blur(10px);           /* Le flou derrière le header */
+    -webkit-backdrop-filter: blur(10px);  /* Pour Safari */
+
     border-bottom: 1px solid var(--border-color);
     height: var(--header-height);
     position: sticky;
     top: 0;
     z-index: 100;
-    /* AJOUTÉ : Ombre subtile pour le détacher du fond gris */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
 
 .site-header .container {
     display: flex;
@@ -114,8 +117,8 @@ h3 { font-size: 1.5rem; }
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
-    /* J'ai supprimé 'position: 20px;' car il était invalide */
+    color: #dddddd;
+    
 }
 .logo:hover {
     text-decoration: none;
@@ -133,10 +136,10 @@ h3 { font-size: 1.5rem; }
     font-size: 0.9rem;
     padding: 0.5rem 0;
     position: relative;
-    color: var(--dark-color); /* MODIFIÉ : Liens de nav en gris foncé */
+    color: #f4f4f4; /* MODIFIÉ : Liens de nav en gris foncé */
 }
 .main-nav a:hover {
-    color: var(--primary-color);
+    color: #f4f4f4;
     text-decoration: none;
 }
 /* Effet de soulignement au survol */
@@ -147,7 +150,7 @@ h3 { font-size: 1.5rem; }
     left: 0;
     width: 0;
     height: 3px;
-    background-color: var(--primary-color);
+    background-color: #d520a8;
     transition: width 0.3s ease;
 }
 .main-nav a:hover::after {
@@ -377,4 +380,89 @@ main {
         /* 1 seule colonne sur mobile */
         grid-template-columns: 1fr; 
     }
+}
+/* Container du personnage + bulle */
+.chat-helper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+/* Le petit personnage */
+.helper-character {
+    width: 90px;
+    height: 90px;
+    background-image: url("images/kevin.jpg"); /* ← Mets ton personnage ici */
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Animation "flottante" */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* La bulle de chat */
+.chat-bubble {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    width: 220px;
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+
+    display: none; /* cachée au départ */
+}
+
+/* Petite flèche de la bulle */
+.chat-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+/* Zone des messages */
+#chat-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Zone input + bouton */
+.chat-input {
+    display: flex;
+    gap: 5px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.chat-input button {
+    padding: 6px 10px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #004a80;
 }

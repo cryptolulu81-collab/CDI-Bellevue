@@ -3,15 +3,61 @@
 
 {% block body %}
 
-<section class="accueil">
-    <div class="contenu">
+<section class="hero-search">
+    <div class="container">
         <h1>Bienvenue au CDI du Lycée Bellevue</h1>
         <p>
-            Explorez notre médiathèque en ligne : découvrez des livres, des magazines, des ressources numériques 
-            et bien plus encore. Le CDI est un espace de culture, d’apprentissage et de curiosité.
+            Explorez la médiathèque numérique du lycée : découvrez nos livres, films, musiques 
+            et ressources pédagogiques. Un espace dédié à la lecture, à la culture et à la découverte.
         </p>
-        <a class="btn" href="{{ url_for('catalogue') }}">📚 Explorer le catalogue</a>
+        <a class="btn btn-primary" href="{{ url_for('catalogue') }}">📚 Explorer le catalogue</a>
     </div>
 </section>
+
+
+
+
+
+<main class="container">
+    <section class="intro">
+        <h2>Nos ressources</h2>
+        <p>
+            Le CDI met à votre disposition un vaste choix de documents : 
+            romans, bandes dessinées, films, albums musicaux et ressources numériques.
+            Tout est accessible depuis notre catalogue en ligne.
+        </p>
+    </section>
+
+    <section class="media-grid">
+        <!-- Exemple de cartes d'aperçu -->
+        <div class="media-card">
+            <img src="{{ url_for('static', filename='img/livre_exemple.jpg') }}" alt="Livre" class="media-card-image">
+            <div class="media-card-content">
+                <span class="media-card-type type-livre">Livre</span>
+                <h3 class="media-card-title">Exemple de roman</h3>
+                <p class="media-card-author">Auteur inconnu</p>
+            </div>
+        </div>
+
+        <div class="media-card">
+            <img src="{{ url_for('static', filename='img/film_exemple.jpg') }}" alt="Film" class="media-card-image">
+            <div class="media-card-content">
+                <span class="media-card-type type-film">Film</span>
+                <h3 class="media-card-title">Film du mois</h3>
+                <p class="media-card-author">Réalisateur : A. Dupont</p>
+            </div>
+        </div>
+
+        <div class="media-card">
+            <img src="{{ url_for('static', filename='img/musique_exemple.jpg') }}" alt="Musique" class="media-card-image">
+            <div class="media-card-content">
+                <span class="media-card-type type-musique">Musique</span>
+                <h3 class="media-card-title">Album à découvrir</h3>
+                <p class="media-card-author">Artiste : L. Morel</p>
+            </div>
+        </div>
+    </section>
+</main>
+
 
 {% endblock %}

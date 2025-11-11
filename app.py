@@ -16,6 +16,14 @@ def catalogue():
 def about():
     return render_template('about.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/profil')
+def profil():
+    return render_template('profil.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
