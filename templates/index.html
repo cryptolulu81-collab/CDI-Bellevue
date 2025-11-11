@@ -3,33 +3,23 @@
 
 {% block body %}
 
-<section class="hero-search">
-    <div class="container">
-        <h1>Bienvenue au CDI du Lycée Bellevue</h1>
-        <p>
-            Explorez la médiathèque numérique du lycée : découvrez nos livres, films, musiques 
-            et ressources pédagogiques. Un espace dédié à la lecture, à la culture et à la découverte.
-        </p>
-        <a class="btn btn-primary" href="{{ url_for('catalogue') }}">📚 Explorer le catalogue</a>
-    </div>
-</section>
-
-
-
-
-
-<main class="container">
-    <section class="intro">
-        <h2>Nos ressources</h2>
-        <p>
-            Le CDI met à votre disposition un vaste choix de documents : 
-            romans, bandes dessinées, films, albums musicaux et ressources numériques.
-            Tout est accessible depuis notre catalogue en ligne.
-        </p>
+<main>
+    <section class="hero-search">
+        <div class="container">
+            <h1>Bienvenue sur le site du CDI du Lycée Bellevue</h1>
+            <p>
+                Vous pouvez réserver dès maintenant vos livres en ligne et voir les dernières nouveautés !
+            </p>
+            <a class="btn btn-primary" href="{{ url_for('catalogue') }}">📚 Explorer le catalogue</a>
+        </div>
+        
     </section>
-
-    
+    <video class="bg-video" autoplay muted loop>
+        <source src="static/videos/bg.mp4" type="video/mp4">
+    </video>
 </main>
+
+
 
 
 {% endblock %}

@@ -3,7 +3,204 @@
 
 {% block body %}
 
-<h2>A propos</h2> 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - CDI Bellevue</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header */
+    .header-cdi .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #f5f5f5;
+    }
+
+    .logo-cdi {
+      font-weight: bold;
+      font-size: 24px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .nav-principale ul {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-principale a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-principale a:hover {
+      color: #007bff;
+    }
+
+    /* Hero Section */
+    .hero-about {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero-about h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .hero-about p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Main Content */
+    .about-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .about-section {
+      margin-bottom: 50px;
+    }
+
+    .about-section h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .about-section p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Team */
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .team-member {
+      flex: 1 1 250px;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .team-member h3 {
+      margin: 10px 0 5px 0;
+    }
+
+    .team-member p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      .team {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <!-- Hero Section -->
+  <section class="hero-about">
+    <h1>À propos du CDI Bellevue</h1>
+    <p>Découvrez notre mission, notre équipe et nos services pour vous accompagner dans vos lectures.</p>
+  </section>
+
+  <!-- Main Content -->
+  <div class="about-container">
+
+    <!-- Mission Section -->
+    <div class="about-section">
+      <h2>Notre Mission</h2>
+      <p>
+        Le CDI Bellevue a pour objectif de fournir aux étudiants et aux enseignants un accès facile à une vaste collection d'ouvrages et de ressources pédagogiques. 
+        Nous encourageons la lecture, la recherche et l'apprentissage tout au long de la vie.
+      </p>
+    </div>
+
+    <!-- Équipe Section -->
+    <div class="about-section">
+      <h2>Notre Équipe</h2>
+      <div class="team">
+        <div class="team-member">
+          <img src="https://via.placeholder.com/100" alt="Nom du membre">
+          <h3>Marie Dupont</h3>
+          <p>Responsable du CDI</p>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/100" alt="Nom du membre">
+          <h3>Jean Martin</h3>
+          <p>Bibliothécaire</p>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/100" alt="Nom du membre">
+          <h3>Claire Leroy</h3>
+          <p>Assistante pédagogique</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="about-section">
+      <h2>Nous Contacter</h2>
+      <p>
+        Pour toute question ou suggestion, vous pouvez nous écrire à <a href="mailto:contact@cdibellevue.fr">contact@cdibellevue.fr</a> 
+        ou nous appeler au 01 23 45 67 89. Nous sommes situés au 10 rue de l'Éducation, 75000 Paris.
+      </p>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
+
 
 
 {% endblock %}
