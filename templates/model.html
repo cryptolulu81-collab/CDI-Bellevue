@@ -7,19 +7,22 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <nav class="navbar">
   <div class="navbar-brand">
-    <div class="logo">LOGO</div>
-    <div class="brand-name">CDI Bellevue</div>
-  </div>
-  <ul class="navbar-links">
-    <li><a href="#">Accueil</a></li>
-    <li><a href="#">À propos</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <div class="navbar-actions">
-    <button class="btn primary">Se connecter</button>
-  </div>
-</nav>
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="logo">CDI Bellevue</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="about">A propos</a></li>
+                    <li><a href="catalogue">Catalogue</a></li>
+                    <li><a href="#">Mon Compte</a></li>
+
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
 
   {% block head %}{% endblock %}
 </head>

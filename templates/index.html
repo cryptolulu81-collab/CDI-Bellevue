@@ -1,25 +1,17 @@
 {% extends "model.html" %}
 {% block title %}Accueil{% endblock %}
 
-
 {% block body %}
 
-
-<body>
-    <h1>Bienvenue sur le site du CDI de Bellevue</h1>
-    <p>Ceci est une page d'accueil simple sans mise en forme.</p>
-    <a class="btn" href="catalogue">Explorer le catalogue</a>
-</body>
-
-
-
-
-
-
-
-
-
-
-
+<section class="accueil">
+    <div class="contenu">
+        <h1>Bienvenue au CDI du Lycée Bellevue</h1>
+        <p>
+            Explorez notre médiathèque en ligne : découvrez des livres, des magazines, des ressources numériques 
+            et bien plus encore. Le CDI est un espace de culture, d’apprentissage et de curiosité.
+        </p>
+        <a class="btn" href="{{ url_for('catalogue') }}">📚 Explorer le catalogue</a>
+    </div>
+</section>
 
 {% endblock %}
